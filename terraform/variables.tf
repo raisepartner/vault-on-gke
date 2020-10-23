@@ -212,3 +212,31 @@ variable "vault_recovery_threshold" {
   default     = "1"
   description = "Number of recovery keys required for quorum. This must be less than or equal to \"vault_recovery_keys\"."
 }
+
+#
+# TLS settings
+# ------------------------------
+
+variable "manage_tls" {
+  type        = bool
+  default     = true
+  description = "Set to false to manage the TLS certificate outside of the module. The tls_cert, tls_key and ca_cert must be set"
+}
+
+variable "tls_cert" {
+  type        = string
+  default     = ""
+  description = "manual TLS certificate (pem encoded)"
+}
+
+variable "tls_key" {
+  type        = string
+  default     = ""
+  description = "manual TLS private key (pem encoded)"
+}
+
+variable "ca_cert" {
+  type        = string
+  default     = ""
+  description = "CA certificate for the manual TLS certificate (pem encoded)"
+}
