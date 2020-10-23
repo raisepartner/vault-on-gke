@@ -247,6 +247,10 @@ resource "kubernetes_stateful_set" "vault" {
         }
       }
     }
+
+    update_strategy {
+        type = "RollingUpdate"
+    }
   }
 }
 
