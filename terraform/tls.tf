@@ -49,11 +49,7 @@ resource "tls_cert_request" "vault" {
   key_algorithm   = tls_private_key.vault[0].algorithm
   private_key_pem = tls_private_key.vault[0].private_key_pem
 
-  dns_names = [
-    "vault",
-    "vault.local",
-    "vault.default.svc.cluster.local",
-  ]
+  dns_names = concat(var.dns_names, var.extra_dns_names)
 
   ip_addresses = [
     google_compute_address.vault.address,

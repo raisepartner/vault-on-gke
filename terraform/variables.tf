@@ -240,3 +240,19 @@ variable "ca_cert" {
   default     = ""
   description = "CA certificate for the manual TLS certificate (pem encoded)"
 }
+
+variable "dns_names" {
+    type = list(string)
+    default = [
+    "vault",
+    "vault.local",
+    "vault.default.svc.cluster.local",
+  ]
+  description = "default DNS names used in the self-signed certificate"
+}
+
+variable "extra_dns_names" {
+    type = list(string)
+    default = []
+  description = "extra DNS names used in the self-signed certificate"
+}
